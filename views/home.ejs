@@ -3,8 +3,9 @@
 <h1>Home</h1>
 <%= homeContent %></>
 
-<% for(let i = 0; i <blogPost.length; i++ ){%>
-    <%console.log(blogPost[i].blogTitle)%>
-<%}%>  
+<% blogPost.forEach(function(post){ %>
+    <h1><%=post.blogTitle%></h1>
+    <p><%=post.blogBody%></p>
+<% }) %>
 
 <%- include('partials/footer'); -%>
