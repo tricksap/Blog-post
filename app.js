@@ -18,8 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/",function(req,res){
-  res.render("home",{homeContent:homeStartingContent})
-  console.log(blogs);
+  res.render("home",{homeContent:homeStartingContent,blogPost: blogs})
 });
 
 app.get("/about", function(req,res){
@@ -45,16 +44,6 @@ app.post("/compose", function(req, res){
 
   res.redirect("/")
 })
-
-
-
-
-
-
-
-
-
-
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
