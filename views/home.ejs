@@ -5,7 +5,8 @@
 
 <% blogPost.forEach(function(post){ %>
     <h1><%=post.blogTitle%></h1>
-    <p><%=post.blogBody%></p>
+    
+    <p><%=post.blogBody.substring(0,101)%> ... <a href="/posts/<%=post.blogTitle%>" >Read More</a></p>
 <% }) %>
 
 <%- include('partials/footer'); -%>

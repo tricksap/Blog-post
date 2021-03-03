@@ -32,16 +32,17 @@ app.get("/contact", function(req,res){
 })
 
 app.get("/compose", function(req,res){
-  res.render("post")
+  res.render("compose")
 
 })
 
 app.get("/posts/:postName", function(req,res){
-  const requestedTitle = req.params.postName;
+  const requestedTitle = _.lowerCase(req.params.postName);
   blogs.forEach(function(blog){
-    if (_.lowerCase(blog.blogTitle) ===_.lowerCase(requestedTitle))
+    const currentTitle = _.lowerCase(blog.blogTitle)
+    if ( currentTitle === requestedTitle)
     {
-      console.log("Match Found!!!!!!")
+      res.render("post",{title:blog.blogTitle,body:blog.blogBody})
     }
     else{
       console.log("Error");
